@@ -14,5 +14,5 @@ clean :
 	rm *.pdf
 
 acronyms.tex :$(tex) myacronyms.tex
-	acronyms.csh  $(tex)
+	generateAcronyms.py  $(tex)
 
