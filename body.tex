@@ -1,0 +1,23 @@
+\section{Introduction}
+
+A few sites or countries have expressed an interest in hosting {\em the LSST data} while not being to specific on what that means.
+In this document we lay out some ideas on what being a Data Access Center mihgt mean and what requiremente would need ot be met.
+
+
+\section{What data are we talking about ?}
+
+For many, perhaps most, astronomers thinking of LSST data they will consider first the catalog(s) and more specifically the Object Catalog.
+This catalog contains one row for each of the observed items in the firmament, hence it is estimated to contain about $40 ~times 10~{9}$\footnote{Often stated as 40 billion - but that is an ambiguos term though less so theses days.}. This catalog nominally contians $1840$ bytes per row giving a size of $\approx 7 \times 10^{13}$ bytes (70 Terabytes). One could potential envision smaller version of this (less columns, seperate star and galaxy catalogs). This is not something one woudl handle on a laptop in the next few years but might be put on a small departmental cluster.
+Of course searching it would require some form of database, many institutes would already have a system which may be cabale of loading this data.
+We might call this LSST lite, potentially a lot of people might be interested. In principle we would only ship files for this with documentaiton and no support but it could be made widely avialble to the collaboration. If bandwidth for download could be a problem we could consider setting up some sort of peer to peer network for distributing it.
+
+Next
+
+
+\section{Requirements on DACs}
+International DAC would need to meet a number of policy requirements and minimum support standards. One such policy would be they are required to provide access to LSST data (equivalent to NCSA) for anyone with LSST data access rights, not just their own national community. Another would be for the initial setup of the DAC, there is a fee required to offset development costs for the distributed DAC model and the one-time effort to get it up and running. There might be policies related to the services the DAC must provide. There may be standards about the level of software engineering support available: speaking to the credibility of actually executing. There needs to be a threshold: we do not want too many of these, which would take the support requirements to a whole new level.
+2. To the degree that ICs use other DACs, they reduce the operating costs for LSST at NCSA, which is sized to serve the full US and international community and costed accordingly.
+3. A possible way to regulate this offset of NCSA operations, the international DAC gets a credit against the normal data access fees based on some formula related to the number of LSST data rights holders that demonstrably use (compute hours per year against an account) the international DAC. This provides an incentive for the international DAC to be open to the LSST community and quantifies the reduction in usage at NCSA.
+4. We may also want to consider separating data access fees into a true computing access fee and a "help desk" fee. The latter may still be of interest to a wider audience, even if the users are getting cycles from an international DAC. The responsibility would be on LSSTC to keep track of the separate lists.
+
+We worked in some equivalent way with BABAR. Various physics analysis groups (collaborations in the LSST parlance) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course. National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community).
