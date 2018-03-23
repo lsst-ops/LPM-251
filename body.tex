@@ -34,12 +34,21 @@ Having significant hardware above the normal for most astronomy departments woul
 \subsection{Policies}
 We may require DACs to attach to the LSST authentication system to ensure correct access to the data - this may require some IT work at the hosting site. An implication could be that {\em any } qualified user could log in.
 
-\section{Cost impacts}
-2. To the degree that ICs use other DACs, they reduce the operating costs for LSST at NCSA, which is sized to serve the full US and international community and costed accordingly.
-3. A possible way to regulate this offset of NCSA operations, the international DAC gets a credit against the normal data access fees based on some formula related to the number of LSST data rights holders that demonstrably use (compute hours per year against an account) the international DAC. This provides an incentive for the international DAC to be open to the LSST community and quantifies the reduction in usage at NCSA.
-4. We may also want to consider separating data access fees into a true computing access fee and a "help desk" fee. The latter may still be of interest to a wider audience, even if the users are getting cycles from an international DAC. The responsibility would be on LSSTC to keep track of the separate lists.
+Some required number of PIs would be needed before we could sanction a DAC.
 
-\section{Should we align DACs with Science Collaboration }
-We worked in some equivalent way with BABAR. Various physics analysis groups (collaborations in the LSST parlance) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course. National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community).
+\section{Cost impacts}
+There are at least two const impacts of DACs being set up outside USA and Chile. The positive impact is some load may be taken off the existing DACs, the negative is that support will definitely be required to set them up.
+
+In HEP experiments such as  BABAR various physics analysis groups (science collaborations in LSST ) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course. National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community). We have no such system in place for LSST though.
+
+\subsection{Data Transfer}
+Even with good networks the data transfer will not be trivial - LSST is not currently set up to distribute data to multiple sites i.e. there is no form of peer to peer sharing. The bandwidth ti NCSA is adequate for Alerts and for receiving data - one could use some day time bandwidth to transfer data to other DACs. A full release does not have to transferred on a given day, if the correct agreements are in place this could b transferred as it is produced.
+
+\subsection{Compute vs Data}
+A large cost in the DAC is data storage - if this is set up without a large compute capacity the facility may be less useful  than augmenting an existing DAC to have more compute. One could consider paid for increased compute quota for a given collaboration or set of PIs.
+We already have the notion of standard quotas and an allocation committee to adjudicate on bigger proposals.
+
+Another way to approach this would be to have a \emph{Cloud} based DAC where a PI could buy nodes on the provider cloud to access the holdings put there by LSST. In the most radical approach we would move the US DAC to Amazon or Google to achieve this.
+
 
 \section{Conclusion}
