@@ -7,14 +7,18 @@ In this document we lay out some ideas on what being a Data Access Center might 
 
 \section{What data are we talking about ?}
 
+For more Information on Object, Object Extra, Source etc. as used here the reader is referred to \DPDD \citedsp{LSE-163}
+
 \subsection{Lite}
 For many, perhaps most, astronomers thinking of LSST data they will consider first the catalog(s) and more specifically the Object Catalog.
-This catalog contains one row for each of the observed items in the firmament, hence it is estimated to contain about $40 ~times 10~{9}$\footnote{Often stated as 40 billion - but that is an ambiguous term though less so theses days.}. This catalog nominally contains $1840$ bytes per row giving a size of $\approx 7 \times 10^{13}$ bytes (70 Terabytes). One could potential envision smaller version of this (less columns, separate star and galaxy catalogs). This is not something one would handle on a laptop in the next few years but might be put on a small departmental cluster.
+This catalog contains one row for each of the observed items in the firmament, hence it is estimated to contain about $40 ~times 10~{9}$. This will have close to this size already from DR1.
+%\footnote{Often stated as 40 billion - but that is an ambiguous term though less so theses days.}.
+This catalog nominally contains $1840$ bytes per row giving a size of $\approx 7 \times 10^{13}$ bytes (70 Terabytes). One could potential envision smaller version of this (less columns, separate star and galaxy catalogs). This is not something one would handle on a laptop in the next few years but might be put on a small departmental cluster.
 Of course searching it would require some form of database, many institutes would already have a system which may be capable of loading this data.
-We might call this LSST lite, potentially a lot of people might be interested. In principle we would only ship files for this with documentation and no support but it could be made widely available to the collaboration. If bandwidth for download could be a problem we could consider setting up some sort of peer to peer network for distributing it.
+We might call this LSST lite, potentially a lot of people might be interested. We would only ship files for this with documentation and no support but it could be made widely available to the collaboration. If bandwidth for download could be a problem we could consider setting up some sort of peer to peer network for distributing it.
 
 \subsection{Catalog Server}
-The next level would be the catalog with the LSST database server - this would require specific machines and the deployment of the database system and associated subset of data access services (DAX). If we include Object, Object extra and Source Catalogs this takes the storage to PBs and begins to require a serious commitment of resources at the proposed DAC. Each object has order 80 observation(sources) per year yielding for the final data release around $7 \times 10^{12} $ rows and forced sources $7 \times 10^{12}$ rows.  The catalog size for the final release is order 15PB.
+The next level would be the full catalogs. This would probably require the specific LSST database server \citedsp{LDM-135} and specific machines and the deployment of the database system and associated subset of data access services (DAX). If we include Object extra (one row per object with e.g. probability distribution it is $\approx 20KB $ per row)  as well as  Object (as above)  extra and Source Catalogs this takes the storage to PBs and begins to require a serious commitment of resources at the proposed DAC. Each object has order 80 observation(sources) per year yielding for the final data release around $7 \times 10^{12} $ rows and forced sources $7 \times 10^{12}$ rows.  The catalog size for the final release is order 15PB.  The evolution of catalog sizes is depicted in \figref{fig:catvol}
 
 \subsection{Full release(s)}
 Including the raw image data in a DAC requires roughly 6PB per year of survey this is another serious augmentation on resources (hardware and personnel). The processed data and associated calibrations bring the total  to 0.5 Exabytes.  One may consider taking a  calibrated image per band
@@ -23,23 +27,39 @@ but it will still take 60PB (this could be compressed to reduce it a little).
 In this mode one would assume to deploy the full science platform.
 
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/CatVolTime}
+\caption{Catalog volume over time from \citeds{LDM-144}. \label{fig:catvol}}
+\end{center}
+\end{figure}
+
+
 \section{Requirements on DACs}
 Any institution considering setting up a DAC will need to show commitment on purchasing sufficient storage and CPU power to hold and serve the data.
 Sufficient storage here ranges from 100TB minimum to 0.5Exabytes.  Even for the \emph{lite} catalog a set of servers would be needed to make access to the 70 TB feasible. For the full catalog it is order 100 nodes to serve it up.   To serve images a DAC would need some additional servers, depending on load this may be order 10.
+
+The Science Platform is a term used to describe, a Portal, web services and notebooks which  will provide query and analytical tool kits, an open software framework for astronomy and parallel processing, and the associated computational, storage, and communications infrastructure needed to enable science.
+It is  described in \citeds{LSE-319} and \citeds{LDM-554}
+
 Deploying the science platform would seem logical with the images and catalogs - again depending on assumed load the platform is modest it requires two servers or so to set up, we suggest then 2 CPUs per simultaneous user (hence if you think you have 200 user but on 50 at a time 100 CPUs).
 The open ended question is next tot he data compute - this can be as large as a data center wishes and may want to connect to some local super computer resources.
 
-Having significant hardware above the normal for most astronomy departments would require dedicated technical personnel to set it up and keep it all running. This is not a single FTE job.
+Having significant hardware above the normal for most astronomy departments would require dedicated technical personnel to set it up and keep it all running.  For the lite Catalogue on existing supported hardware this may not be a significant increase in person power $\iff$ the service is already order 50-100TB. Still one may assume at least a 0.25 FTE for maintaining this (new releases fixes) and more to get it initially set up.  For the full catalog up  one could envisage needed 2FTE. Again there will be software  updates to install as well as new data to load. The full science platform and all the image data would require 1 or 2 storage engineers to mange the large amount of storage and possible one more FTE to keep the Kubernetes or equivalent system updated and the latest software deploys.  Should there be many users local user support will become an specific issue which may not be covered by the usual institutional support requiring further effort. It would seem any potential full DAC without a minimum of 4 FTE should not be considered viable.
 
 \subsection{Policies}
-We may require DACs to attach to the LSST authentication system to ensure correct access to the data - this may require some IT work at the hosting site. An implication could be that {\em any } qualified user could log in.
+We may require DACs to attach to the LSST authentication system to ensure correct access to the data - this may require some IT work at the hosting site.
+There is an open point as to whether  {\em any } qualified user could log in to any DAC. This would facilitate collaborations but would require a single authentication system.
 
-Some required number of PIs would be needed before we could sanction a DAC.
+Setting up a DAC will require some level of support from LSST.  The associated DAC support and infrastructure development costs are being separately considered.
+%Some required number of PIs would be needed before we could sanction a DAC.
 
 \section{Cost impacts}
 There are at least two const impacts of DACs being set up outside USA and Chile. The positive impact is some load may be taken off the existing DACs, the negative is that support will definitely be required to set them up.
 
-In HEP experiments such as  BABAR various physics analysis groups (science collaborations in LSST ) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course. National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community). We have no such system in place for LSST though.
+We may want to associate specific areas of science to a given iDAC  and encourage the associated users to this center. This creates a customer base for the center, brings together like minded experts, and distributes computing load around the network of centers. It may also enhance internal funding arguments for investment resources by arguing for synergies with local science goals and attracting international users and official endorsement.
+
+% In HEP experiments such as  BABAR various physics analysis groups (science collaborations in LSST ) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course. National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community). We have no such system in place for LSST though.
 
 \subsection{Data Transfer}
 Even with good networks the data transfer will not be trivial - LSST is not currently set up to distribute data to multiple sites i.e. there is no form of peer to peer sharing. The bandwidth ti NCSA is adequate for Alerts and for receiving data - one could use some day time bandwidth to transfer data to other DACs. A full release does not have to transferred on a given day, if the correct agreements are in place this could b transferred as it is produced.

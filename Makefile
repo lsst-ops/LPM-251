@@ -1,7 +1,7 @@
 #
 #
 
-SRC=$(wildcard LDM-*.tex)
+SRC=$(wildcard LPM-*.tex)
 tex=$(SRC) body.tex 
 
 OBJ=$(SRC:.tex=.pdf)
@@ -13,6 +13,6 @@ clean :
 	latexmk -c
 	rm *.pdf
 
-acronyms.tex :$(tex) myacronyms.tex
+acronyms.tex :$(tex) myacronyms.txt
 	generateAcronyms.py  $(tex)
 

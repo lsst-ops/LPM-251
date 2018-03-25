@@ -1,3 +1,5 @@
+PI:Principle Investigator
+TB:TeraByte
 MOPS:Moving Object Pipelines
 ITC:Information Technology Center
 SLA:Service Level Agreement
@@ -16,7 +18,6 @@ SUIT:Science User Interface and Tools
 DMCCB:DM Change Control Board
 LCR:LSST Change Request
 DMSS:DM Subsystem Scientist
-TCAMS:Technical Control/Account Manager
 OSS:Observatory System Specifications
 DMIS:DM Interface Scientist
 IS:Interface Scientist
@@ -37,26 +38,21 @@ US:United States
 VO:Virtual Observatory
 bps:bit(s) per second
 CR:Change Request
-CAM:Control Account Manager
 
 CCB:Change Control Board
 DAC:Data Access Center
 DC:Data Center
-DMS:Data Management Sub-system
 DMO:Data Management Organization
 DM:Data Management
 
-TCAM:Technical Control Account Manager
 TCT:Technical Control Team (Obsolete - now DMCCB)
 LSE:LSST Systems Engineering (Document Handle)
 LPM:LSST Project Management (Document Handle)
 DMLT: DM Leadership Team
 NCSA: National Center for Supercomputing Applications
-CAM: CAMera
 DMSR:DM System Requirements
 SEMP:Systems Engineering Management Plan
 NSF:National Science Foundation
-DMS:Document Management System (ESA)
 PM:Project Manager
 DMPM:Data Management Project Manager
 DDMPM:Data Management Deputy Project Manager
