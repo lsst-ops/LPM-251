@@ -62,3 +62,7 @@ SA:Science Alert(s)
 SUI:Science User Interface
 CIL:Configuration Item List
 EFD:Engineering Facilities Database
+
+CDN:Content Delivery Network
+PB:PetaByte
+GB:GigaByte

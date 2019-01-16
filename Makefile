@@ -2,7 +2,7 @@
 #
 
 SRC=$(wildcard LPM-*.tex)
-tex=$(SRC) body.tex 
+tex=$(SRC) body.tex xfercost.tex
 
 OBJ=$(SRC:.tex=.pdf)
 
