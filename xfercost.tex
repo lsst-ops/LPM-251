@@ -1,0 +1,20 @@
+\subsubsection{Transfer cost use case}
+If we take the final number from the key numbers page \footnote{\url{https://confluence.lsstcorp.org/display/LKB/LSST+Key+Numbers}} we could consider DR1 as about 6 PB (10\% of the final size).
+
+We would have at least  two ways to transfer this : via the network, via physical devices.
+
+A network transfer at 10Gbps of 6 PB would take $8 * 6 \times 10^{12} \ 10^7 = 4.8 \times 10^{6}~seconds $ or about 55 days\footnote{ day = 86400}.
+Many institutes have 100 Gbps connections so this should be an upper limit and a transfer should be order one week. If we had a peer to peer network this may go down somewhat and we may be able to support it from NCSA.
+
+Alternatively we could host the data on Amazon or Google and let people download it from there - they would have more capacity.
+Storage on the cloud  for public data would be theoretically free - download (egress)  would  cost.
+Transfer to another cloud \footnote{\url{https://cloud.google.com/storage/pricingi\#network-pricing}}  or
+ a Content Delivery Network (CDN)\footnote{\url{https://cloud.google.com/cdn/pricing}}
+ end up costing  about a cent a GB which for an open science project and at our volume  should  be negotiable.  At one cent a transfer would cost
+  $\sim \$0.01 * 6 \times 10^{12} \ 10^6 = \$60K$.
+So we would need some special deal to make that work.
+
+For physical devices, today apparently we could get a device like Petarack \url{https://www.aberdeeninc.com/petarack/} for \$300K.
+This could be be a partner data center cost as well as shipping it. Transfer of data on to this would be about the same as the network rate above so 7 days. SneakerNet \cite{2002cs........8011G} may still be  cost effective in the LSST era, which is predicted in the a paper.
+
+
