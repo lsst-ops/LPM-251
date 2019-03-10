@@ -1,3 +1,4 @@
+ASDC:ASI Science Data Center (Italy)
 PI:Principle Investigator
 TB:TeraByte
 MOPS:Moving Object Pipelines
@@ -18,9 +19,12 @@ SUIT:Science User Interface and Tools
 DMCCB:DM Change Control Board
 LCR:LSST Change Request
 DMSS:DM Subsystem Scientist
+ODF:Open Data Framework
 OSS:Observatory System Specifications
 DMIS:DM Interface Scientist
+IP:Internet Protocol
 IS:Interface Scientist
+IoA:Institute of Astronomy (Cambridge UK)
 PMCS:Project Management Control System
 
 ISR:Instrument Signal Removal
