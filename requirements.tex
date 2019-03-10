@@ -20,8 +20,11 @@ The actual costs of iDAC support and infrastructure development are considered s
 
 
 
-\subsection{Resources}
-{\color{red}Wil } \newline
+\subsection{Required Resources} \label{sec:resources}
+Institutions or organizations wishing to set up independent data access centres will be expected to have
+sufficient resources and commitments before we discuss data transfers and support.
+See also \secref{sec:cvs} for a discussion on compute vs storage.
+%Perhpas that should move here
 
 \subsubsection{Data Storage}
 Any institution considering setting up an iDAC will need to show commitment on purchasing sufficient storage and CPU power to hold and serve the data. Sufficient storage ranges from $0.5$ exabytes for the full data release(s) down to $100$ terabytes for a catalog server, and potentially further down to $70$ terabytes if the {\tt Object Lite} option is offered. For the full catalog it is order 100 nodes to serve it up, and to serve images a DAC would need some additional servers; depending on load this may be order 10 additional nodes.
@@ -32,10 +35,14 @@ If the full set of data release products including images and catalogs are desir
 \subsubsection{Dedicated Personnel}
 The significant hardware required by an iDAC is above the normal level for most astronomy departments, and would require dedicated technical personnel to set it up and keep it running. For an {\tt Object Lite} catalog running on existing hardware, this might not be a significant increase in person power if the hardware is already serving on order $50$--$100$ terabytes. Still, it is recommended to assume $\gtrsim0.25$ full-time equivalent (FTE) personnel hours for {\tt Object Lite}, and perhaps closer to $\sim2$ FTE for the full catalogs, which includes setting up and maintaining the service, and installing new data releases and software updates every year. For iDACs wishing to host the full data releases' images and catalogs and deploy the LSST Science Platform, it becomes necessary to employ $1$--$2$ storage engineers to mange the large amount of data, and possibly one more FTE to keep the Kubernetes (or equivalent) system updated with the latest software deploys. If the iDAC intends to support the science of many local users, support will become a specific issue which may not be covered by the usual institutional funding, and will require further effort. It is therefore recommended that any partner institution wishing to host a full-release iDAC provide a minimum personnel of 5 FTE to be considered viable.
 
+\subsection{Networking and distribution}
+There is an assumption than any prospective iDAC will have a high bandwidth connection with demonstrated sustained $40 Gb/s$ to enable data transfer ans sufficient bandwidth for access by users.
+In addition all iDACs should be ready  to serve the 'object-lite' catalog to any institution worldwide but especially any {\em local} institutions.
+
 \subsection{Services}
 {\color{red} Leanne } \newline
 
-Services provided by LSST partner iDACs:s
+Services provided by LSST partner iDACs
 
 \subsubsection{The LSST Science Platform}
 All LSST independent data access centres must run an instance of the LSST Science Platform
@@ -46,30 +53,28 @@ All LSST independent data access centres must run an instance of the LSST Scienc
 % LPG Outline the responsibilities of the LDF towards recognized iDACs
 \section{Responsibilities of the LSST Data Facility}
 
-This section describes the services that the LSST Data Facility (LDF) will provide in support of all LSST iDACs.
+% redundant with title.. This section describes the services that the LSST Data Facility (LDF) will provide in support of all LSST iDACs.
 
-The LDF will prepare data products for distribution to non-LSST DACs along with documentation of hardware and software that will make serving these data consistent with the serving of data from the LSST DACs. LSST will provide (modest) technical support consistent with available resources to assist groups setting up non-LSST DACs.
+The LDF will prepare data products for distribution to along with documentation  including documentation of  software  and indicative hardware that will make serving these data consistent with the serving of data from the LSST DACs.
+
+LSST will provide (modest) technical support consistent with available resources to assist groups setting up non-LSST DACs provided the comply with prerequisites discussed in this document and especially in \secref{sec:resources}
+
+\subsection{Data Distribution} \label{sec:dist}
+
+NCSA will have $100Gb/s$ connections  on ESNET which has interconnects with Internet2 - this should provide a distribution mechanism for getting data to iDACs, it will however be limited by the fact that much of our bandwidth is already allocated for data transmission to IN2P3 and alert distribution.
+
+A tiered model as used by CERN for high energy physics would seem a desirable way to achieve big transfers. Hence we would have a small selection of tier 2 centres with all data products from which tier 3 centres could copy the subsets they wish to work with.  Other alternatives are discuss in \secref{sec:xfer}.
+
+In HEP experiments such as  BABAR various physics analysis groups (science collaborations in LSST ) were assigned to specific international centers as their primary computing and analysis facility, thereby distributing the computing load around the "network". People naturally tend to use the facility with available resources and cycles anyway of course.
+National groups received credit against their normal "operating common fund" contributions (equivalent to part of the LSST operations cost) based on their local computing contribution, and service to the full collaboration (equivalent to the full LSST data rights community).
+We have not discussed  such system in place for LSST yet though.
+~
+%WOM - I took a go at it ..
+%Points to be addressed
+%\begin{enumerate}
+%\item High-bandwidth network out of the LDF to all iDACs
+%\item Distribution of each of the data products types outlined in \ref{sec:data} to iDACs
+%\item ......
+%\end{enumerate}
 
 
-Points to be addressed
-\begin{enumerate}
-\item High-bandwidth network out of the LDF to all iDACs
-\item Distribution of each of the data products types outlined in \ref{sec:data} to iDACs
-\item ......
-\end{enumerate}
-
-
-All LSST  iDACs must be able to serve the 'object-lite' catalog to any institution worldwide.
-
-
-\subsection{Proprietary Data Access Policies}
-{\color{red}Defer for now until further guidance received.} \newline
-
-All iDACs serving the proprietary LSST data products are subject to the policies in \citeds{LPM-261}. It might be necessary for iDACs to use the LSST authentication system to ensure secure access to the data for authorized users only, and this might require some specific IT work at the iDAC host site.
-
-%%%MLG: commented this out (WOM, delete if we'll never need to say this).
-% It remains an open question whether {\em any} qualified user from any LSST partner institution can log into any iDAC -- this would facilitate collaboration but would also require that iDACs participate in the single authentication system.
-
-%%%MLG: commented this out (WOM, delete if we'll never need to say this).
-%\subsection{iDACs Serving Post-Proprietary Data}
-% {\bf MLG: can we think of any requirements/guidelines for this scenario? Should this document even cover non-partner iDACs? Any non-partner iDAC wishing to serve the two-year-old post-proprietary full release to its users would not, for example, be able to get help installing the LSP. Perhaps we could use this paragraph to further encourage the benefits of partnership.}

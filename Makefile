@@ -1,8 +1,9 @@
 #
 #
 
+
 SRC=$(wildcard LPM-*.tex)
-tex=$(SRC) body.tex xfercost.tex
+tex=$(filter-out $(wildcard *acronyms.tex) , $(wildcard *.tex))  
 
 OBJ=$(SRC:.tex=.pdf)
 
