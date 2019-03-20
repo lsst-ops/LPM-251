@@ -1,12 +1,12 @@
 \section{Types of Data Products for iDACs}\label{sec:data}
 % Operations-era language for data products, as defined in  LSE-231, should be used
  
-The three categories of LSST data products, {\it Prompt}, {\it Data Release}, and {\it User Generated} are defined in the LSST Data Product Categories document  \citedsp{LSE-231}. 
-Both the {\it Prompt}, {\it Data Release} data products are produced by LSST and include images, both raw and processed, catalogs of both {\tt Object} and {\tt Source}. 
+The three categories of LSST data products, {\it Prompt}, {\it Data Release}, and {\it User Generated} are defined in the LSST Data Product Categories document  \citeds{LPM-231}. 
+Both the {\it Prompt}, {\it Data Release} data products are produced by LSST and include images, both raw and processed, and catalogs of both {\tt Object}s and {\tt Source}s. 
 The  {\it User Generated} data products are produced the community using the resources of the LSST Science Platform \citeds{LSE-319}. 
-These data products are described in detail in the Data Products Definitions Document \citedsp{LSE-163}. 
+These data products are described in detail in the Data Products Definitions Document \citeds{LSE-163}. 
 
-Below, three potential realizations of the the LSST {\it Data Release} data products that iDACs might consider hosting are described: the full {\it Data Release} including images images, the {\it Data Release} catalogs only, and a low-volume (``{\tt lite}'') subset of the {\it Data Release} catalogs.
+Below, three potential realizations of the the LSST {\it Data Release} data products that iDACs might consider hosting are described: the full {\it Data Release} including images, the {\it Data Release} catalogs only, and a low-volume (``{\tt lite}'') subset of the {\it Data Release} catalogs.
 
 \subsection{Full Data Release(s)}
 
@@ -28,7 +28,7 @@ Alternatively, an iDAC may find that hosting only the {\it Data Release} catalog
 Many -- perhaps most -- astronomers' science goals will be adequately served by a low-volume subset of the {\tt Object} catalog's columns that do not include, for example, the full posteriors for the bulge+disk likelihood parameters. 
 This {\tt Object Lite} catalog would nominally contain $1840$ bytes per row for the $40 \times 10^{9}$ objects, giving a size of $\approx 7.4 \times 10^{13}$ bytes ($\sim74$ terabytes). 
 Even smaller, science-specific versions of {\tt Object Lite} could be envisioned with even less columns and/or separate star and galaxy catalogs. 
-The Solar System community for example will be primarily be interested in the contents of  the  {\tt SSObjects} table.  
+The Solar System community for example will be primarily be interested in the contents of  just the  {\tt SSObjects} table.  
 
 These would not be small enough to handle on a laptop, but might be served by a small departmental cluster (a mini-iDAC). 
 Searching even a small {\tt Object Lite} catalog would require some form of database, but many institutes would already have a system which may be capable of loading this data. 
