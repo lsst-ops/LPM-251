@@ -1,0 +1,36 @@
+\section{Types of Data Products for iDACs}\label{sec:data}
+% Operations-era language for data products, as defined in  LSE-231, should be used
+ 
+The three categories of LSST data products, {\it Prompt}, {\it Data Release}, and {\it User Generated} are defined in the LSST Data Product Categories document  \citeds{LPM-231}. 
+Both the {\it Prompt}, {\it Data Release} data products are produced by LSST and include images, both raw and processed, and catalogs of both {\tt Object}s and {\tt Source}s. 
+The  {\it User Generated} data products are produced the community using the resources of the LSST Science Platform \citeds{LSE-319}. 
+These data products are described in detail in the Data Products Definitions Document \citeds{LSE-163}. 
+
+Below, three potential realizations of the the LSST {\it Data Release} data products that iDACs might consider hosting are described: the full {\it Data Release} including images, the {\it Data Release} catalogs only, and a low-volume (``{\tt lite}'') subset of the {\it Data Release} catalogs.
+
+\subsection{Full Data Release(s)}
+
+In this case the iDAC would be hosting all of the raw and processed images, and catalogs, as described in \citedsp{LSE-163}. Hosting the raw image data at an iDAC requires roughly $6$ petabytes per year of storage, so this represents a significant augmentation of resources in terms of both hardware and personnel. The processed data and associated calibrations bring the total data volume to $0.5$ exabytes for a single data release. Some data volume could be saved by taking only a single calibrated image per band, but the total would still be $60$ petabytes (with compression it may be possible to reduce this even further). Any iDAC considering hosting the full {\it Data Release} should also deploy the full LSST Science Platform \citeds{LSE-319} in order to maximize science productivity and their return on investment in hosting an iDAC.
+
+\subsection{Catalog Server}	
+
+Alternatively, an iDAC may find that hosting only the {\it Data Release} catalogs, and not the images, is sufficient for the scientific needs of its community. This will probably require the specific LSST database server \citedsp{LDM-135} and specific machines, and the deployment of the database system and the associated subset of data access services (DAX; e.g., web APIs, Qserv, \citeds{LDM-152}). The full {\tt Object} catalog, which contains one row per object with a volume of $\approx 20$ kilobytes per row, is estimated to contain about $40 \times 10^9$ objects (even in the first full-sky data release). Adding to this the full {\tt Source} and {\tt Forced Source} catalogs, which contain one row per measurement in each of the $\sim80$ visit images obtained per year, brings the total storage volume required up into the petabytes range, and will require a serious commitment of resources at the proposed iDAC. The evolution of catalog sizes over the 10-year LSST survey is depicted in \figref{fig:catvol}, from which it is evident that the catalog size for the final release is order $15$ petabytes. For more details on the row counts see the Key Numbers Page\footnote{\url{https://confluence.lsstcorp.org/display/LKB/LSST+Key+Numbers}}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.8\textwidth]{images/CatVolTime.png}
+\caption{Catalog volume over time from \citeds{LDM-144}. \label{fig:catvol}}
+\end{center}
+\end{figure}
+
+\subsection{An ``{\tt Object Lite}" Catalog}\label{sec:lite}
+
+Many -- perhaps most -- astronomers' science goals will be adequately served by a low-volume subset of the {\tt Object} catalog's columns that do not include, for example, the full posteriors for the bulge+disk likelihood parameters. 
+This {\tt Object Lite} catalog would nominally contain $1840$ bytes per row for the $40 \times 10^{9}$ objects, giving a size of $\approx 7.4 \times 10^{13}$ bytes ($\sim74$ terabytes). 
+Even smaller, science-specific versions of {\tt Object Lite} could be envisioned with even less columns and/or separate star and galaxy catalogs. 
+The Solar System community for example will be primarily be interested in the contents of  just the  {\tt SSObjects} table.  
+
+These would not be small enough to handle on a laptop, but might be served by a small departmental cluster (a mini-iDAC). 
+Searching even a small {\tt Object Lite} catalog would require some form of database, but many institutes would already have a system which may be capable of loading this data. 
+In this case, LSST might only ship files with documentation and not provide administrative support for the system, but this would allow the {\tt Object Lite} catalog to be widely available to all partner institution iDACs. Distribution options such as peer-to-peer networking to avoid download bandwidth limitations might be possible to implement in this case. See also \secref{sec:public}.
+

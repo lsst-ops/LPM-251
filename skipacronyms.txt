@@ -1,3 +1,6 @@
 I
 WOM
 LKB
+OBJECT
+LPG
+SDP
