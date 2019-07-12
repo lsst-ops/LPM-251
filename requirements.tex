@@ -1,18 +1,15 @@
-% LPG Detail here the minimum resources and levels of service that a iDAC must commit to to be qualify for consideration as an LSST iDAC
-% I wouldn't call this guidelines - there are concrete requirements that must be met
-
 \section{Requirements and Guidelines for iDACs}\label{sec:reqs}
-Since creating, delivering, and supporting the implementation of LSST data products via iDACs creates some cost to the LSST Project, iDACs will be expected to follow some basic requirements and guidelines that are described below.
-The actual costs of iDAC support and infrastructure development are considered separately in Section \ref{sec:costs}.
+Since creating, delivering, and supporting the implementation of LSST data products via iDACs creates some cost to the LSST Project, iDACs will be expected to follow some basic requirements and guidelines, which are described below.
+The actual costs of iDAC support and infrastructure development are considered separately in Section \ref{sec:xfercost}.
 
 \subsection{LSST site topology} \label{sec:topology}
 
-{\color{red}Leanne to describe the flow in the topology diagram.} \newline
-
+Figure \ref{fig:idac-topology} shows a  topology for a set of interconnected iDACs.  US scientists will have direct access to the LSST Data Access Facility at NCSA.  Hosting on the cloud is shown, as described in 
+	
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.8\textwidth]{images_local/LSST-site-topology}
-\caption{LSST Data Facility and Independent DAC network topology.  \label{fig:lsst-site-topology}}
+\includegraphics[width=0.95\textwidth]{images_local/idac-topology}
+\caption{LSST Data Facility and Independent DAC network topology.  \label{fig:idac-topology}}
 \end{center}
 \end{figure}
 
@@ -20,7 +17,6 @@ The actual costs of iDAC support and infrastructure development are considered s
 Institutions or organizations wishing to set up independent data access centres will be expected to have
 sufficient resources and commitments before we discuss data transfers and support.
 See also \secref{sec:cvs} for a discussion on compute vs storage.
-%Perhpas that should move here
 
 \subsubsection{Data Storage}
 Any institution considering setting up an iDAC will need to show commitment on purchasing sufficient storage and CPU power to hold and serve the data. Sufficient storage ranges from $0.5$ exabytes for the full data release(s) down to $100$ terabytes for a catalog server, and potentially further down to $70$ terabytes if the {\tt Object Lite} option is offered. For the full catalog , of order 100 nodes are required to serve it up. To serve images, a DAC would need some additional servers; depending on load this may be order 10 additional nodes.
@@ -36,33 +32,26 @@ There is an assumption than any prospective iDAC will have a high bandwidth conn
 In addition all iDACs should be ready  to serve the {\tt Object Lite} catalog to any institution worldwide but especially any {\em local} institutions.
 
 \subsection{Services}
-{\color{red} Leanne } \newline
 
-Services provided by LSST partner iDACs
+Independent DACs will be expected to provide services analogous to those provided at the LSST Data Facility at NCSA.  
 
 \subsubsection{The LSST Science Platform}
-All LSST independent data access centres must run an instance of the LSST Science Platform
+
+The {\it LSST Science Platform}  \citeds{LSE-319} is a set of integrated web applications and services deployed at  LSST Data Access Centers through which the scientific community will access, visualize, subset and perform next-to-the-data analysis of the data collected by the LSST; it is envisioned to enable science cases that would greatly benefit from the co-location of user processing and LSST data. It will provide users access to the {\tt Data Products} described in \ref{sec:data}, such as, resources for image reprocessing, access to the LSST processing framework, and many other services as described in \citeds{LSE-163}.  All LSST {\tt Independent Data Access Centers} will be expected to run and support the LSST Science Platform. 
 
 \subsubsection{User Generated data products }
-% Detail here the responsibilities and commitments of the LDF to LSST iDACs. See annex 3.1
 
-% LPG Outline the responsibilities of the LDF towards recognized iDACs
+{\it User Generated} data products will be created by the community deriving from the {\it Prompt} and {\it Data Release} data products, and making  full use of the power of the LSST database systems and
+Science Platform for the storage, access, and analysis of their results.
+The Science Platform will allow for the creation of {\it User Generated} data products and will enable science cases that greatly benefit from co-location of user processing and/or data within the LSST Archive Center.  Independent DACs will be expected to provide support for the creation of {\it User Generated} data products and their federation with the LSST Data products. 
+
 \section{Responsibilities of the LSST Data Facility}
 
-{\color{red} I prefer we not call them LSST iDACs or iLSST DACs. These are independent DACs which comply with basic requirements to support LSST data. By calling them LSST DACs we imply that we have some responsibility for them. I prefer the figure also not use the term "LSST iDACs"}
+This section describes the services that the LSST Data Facility (LDF) will provide in support of all  iDACs.
 
-This section describes the services that the LSST Data Facility (LDF) will provide in support of all LSST iDACs.
-
-The LDF will prepare data products for distribution to iLSST DACs along with documentation of hardware and software that will make serving these data consistent with the serving of data from the LSST DACs. LSST will provide (modest) technical support consistent with available resources to assist groups setting up iLSST DACs. 
+The LDF will prepare data products for distribution to iDACs along with documentation of hardware and software that will make serving LSST data consistent with the serving of data from the LSST Data Facility. LSST will provide (modest) technical support consistent with available resources to assist groups setting up iDACs. 
 
 LSST, through the LDF will establish a process for potential iDAC groups to interface with and establish data transfers to their iDACs. It is expected that iDAC groups will propose to LSST what their iDAC would support and then LSST will work with them to establish requirements to receive LSST data. One approved, LSST will provide (modest) technical support consistent with available resources to assist groups setting up their iDACs provided they comply with prerequisites discussed in this document and especially in \secref{sec:resources}.
-
-%=======
-% redundant with title.. This section describes the services that the LSST Data Facility (LDF) will provide in support of all LSST iDACs.
-
-%The LDF will prepare data products for distribution to along with documentation  including documentation of  software  and indicative hardware that will %make serving these data consistent with the serving of data from the LSST DACs.
-
-%All LSST  iDACs must be able to serve the 'object-lite' catalog to any institution worldwide.
 
 \subsection{Proprietary Data Access Policies}
 {\color{red}Defer for now until further guidance received.} \newline
