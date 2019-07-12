@@ -4,6 +4,7 @@
 \setDocChangeRecord{%
 \addtohist{}{2018-03-24}{Initial version.} {WOM}
 \addtohist{}{2019-02-25}{Added site topology schematic} {LPG}
+\addtohist{}{2019-06-17}{In kind data framework } {WOM}
 %\addtohist{1.0}{2017-12-12}{Approved in \jira{RFC-xxx}.}{W.~O'Mullane, T.~Jenness}
 }
 
@@ -17,7 +18,8 @@
 % a short abstract
 %
 \setDocAbstract {
-This document describes the proposed policies for groups that are independent from the LSST Project and Operations (i.e. LSST Data Facility) and would like to stand up an independent Data Access Center (iDAC; existing data centers that could serve LSST data products are considered iDACs for purposes of this document). Some iDACs may want to serve only a subset of the LSST data products: this document proposes three portion sizes, from full releases to a "light" catalog without posteriors. Guidelines and requirements for iDACs in terms of data storage, computational resources, dedicated personnel, and user authentication are described, as well as a preliminary assessment of the cost impacts. Some institutions, even those inside the US and Chile, may serve LSST data products locally to their research community. Requirements and responsibilities for such institutional bulk data transfers are also described here. {\bf The purpose of this draft document is to serve as a {\it preliminary} resource for partner institutions wishing to assess the feasibility of hosting an iDAC in the era of the Open Data Framework, and is subject to change.}
+This document describes the proposed policies for groups that are independent from the LSST Project and Operations (i.e. LSST Data Facility) and would like to stand up an independent Data Access Center (iDAC; existing data centers that could serve LSST data products are considered iDACs for purposes of this document). Some iDACs may want to serve only a subset of the LSST data products: this document proposes three portion sizes, from full releases to a "light" catalog without posteriors. Guidelines and requirements for iDACs in terms of data storage, computational resources, dedicated personnel, and user authentication are described, as well as a preliminary assessment of the cost impacts. Some institutions, even those inside the US and Chile, may serve LSST data products locally to their research community. Requirements and responsibilities for such institutional bulk data transfers are also described here. {\bf The purpose of this draft document is to serve as a {\it preliminary} resource for partner institutions wishing to assess the feasibility of hosting an iDAC.}
+This document describes the proposed policies for groups that are independent from the LSST Project and Operations (i.e. LSST Data Facility) and would like to stand up an independent Data Access Center (iDAC; existing data centers that could serve LSST data products are considered iDACs for purposes of this document). Some iDACs may want to serve only a subset of the LSST data products: this document proposes three portion sizes, from full releases to a "light" catalog without posteriors. Guidelines and requirements for iDACs in terms of data storage, computational resources, dedicated personnel, and user authentication are described, as well as a preliminary assessment of the cost impacts. Some institutions, even those inside the US and Chile, may serve LSST data products locally to their research community. Requirements and responsibilities for such institutional bulk data transfers are also described here. {\bf The purpose of this draft document is to serve as a {\it preliminary} resource for partner institutions wishing to assess the feasibility of hosting an iDAC in the era of in kind contributions, and is subject to change.}
 }
 \graphicspath{ {./figs} {./images} }
 
@@ -35,7 +37,7 @@ This document describes the proposed policies for groups that are independent fr
 % It's all yours from here on
 %
 \input{intro}
-\input{public}
+%\input{public}
 \input{dataproducts}
 \input{requirements}
 %\input{proprietary}
