@@ -1,0 +1,36 @@
+\newlist{todolist}{itemize}{2}
+\setlist[todolist]{label=$\square$}
+
+\section{IDAC Proposal Checklist}\label{sec:checklist}
+
+There is a spectrum of possibilities for an IDAC's scope, from just hosting the Object lite database, to serving full copies of the current data release and prompt products database.
+Here an attempt is made to have a set of check lists  that can be used to look at an IDAC.
+\secref{sec:fullDAC} covers a full capability IDAC, while  \secref{sec:liteDAC} gives the criteria for a minimum capability IDAC.
+There will undoubtedly be proposals in between. There are some criteria that any IDAC must meet, in order to comply with Rubin Observatory data policy. These are given in \secref{anyDAC}.
+
+\subsection{Any DAC} \label{sec:anyDAC}
+\begin{todolist}
+\item Authentication/Authorization system  inline with Rubin Observatory Access
+\item Agreement to make broadly accessible to all Data Rights holders
+\end{todolist}
+
+\subsection{Lite IDAC} \label{sec:liteDAC}
+All criteria in \secref{sec:anyDAC}, and then, in addition:
+\begin{todolist}
+\item Database system capable of handling $4^{10}$ rows.
+\item IVOA TAP interface, MyDB and Table Upload, CAOM support.
+\item About 500TB of disk for catalogs + MyDBs.
+\item Professional support staff (min 0.25 FTE)
+\item Sufficient connectivity to support users
+\end{todolist}
+
+\subsection{Full DAC} \label{sec:fullDAC}
+All criteria in \secref{sec:anyDAC}, and then, in addition:
+\begin{todolist}
+\item Staff (about 5 FTE) to handle major hardware installation
+\item Agreement to stand up standard Science Platform (Puppet/Kubernetes etc.)
+\item Database system capable of handling all catalogs (or Qserv) with IVOA  interfaces.
+\item Understanding of sizing model in \citeds{DMTN-135} - sizing model and a cost model for the IDAC.
+\item "Commitment to fund the IDAC through the LSST operations period, FY22-FY34 (probably  $>\$6M/year$ based on hardware cost model and labor plan).".
+\item Sufficient connectivity to support data transfer in and user access out at least 20Gbps of free bandwidth.
+\end{todolist}
